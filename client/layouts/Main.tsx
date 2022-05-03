@@ -1,6 +1,5 @@
 import React from "react"
 import Head from "next/head"
-import { Box } from "@chakra-ui/layout"
 import { Router } from "next/dist/client/router"
 import favicon from "../assets/favicon/favicon.ico"
 
@@ -10,14 +9,14 @@ type MainProps = {
 
 const Main: React.FC<MainProps> = ({ children }) => {
   return (
-    <Box as="main">
+    <main>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Template - Template</title>
         <link rel="shortcut icon" href={favicon.src} type="image/x-icon" />
       </Head>
       {children}
-    </Box>
+    </main>
   )
 }
 
