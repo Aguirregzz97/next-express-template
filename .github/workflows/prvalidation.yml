@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: PR Validation
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    branches: main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  API_URL: ${{ secrets.API_URL }}
+  SERVER_HOSTNAME: ${{ secrets.SERVER_HOSTNAME }}
+  SERVER_PORT: ${{ secrets.SERVER_PORT }}
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 17.1.0
+      - run: yarn install
+      - run: yarn lint
+      - run: yarn build
