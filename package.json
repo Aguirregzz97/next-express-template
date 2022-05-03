@@ -1,5 +1,5 @@
 {
-  "name": "axex-api",
+  "name": "next-express-template",
   "version": "1.0.0",
   "description": "",
   "main": "source/server.ts",
